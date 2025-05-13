@@ -25,8 +25,9 @@ restore_item() {
 
   mkdir -p "$(dirname "$DEST_PATH")"
   cp -Rp "$SRC_PATH" "$DEST_PATH"
-  echo "  [RESTORED] $REL_PATH" | tee -a "$LOG_FILE"
+  echo "  [RESTORED] $REL_PATH" >> "$LOG_FILE"
 }
+
 # ------------------------- WALK BACKUP DIR -------------------------------
 
 cd "$BACKUP_DIR" || exit 1
@@ -38,6 +39,7 @@ find "$BACKUP_DIR" \( \
   \) -prune -o -type f -print | while read -r FILE; do
   restore_item "$FILE"
 done
+
 
 # ------------------------- COMPLETION ------------------------------------
 
