@@ -23,7 +23,8 @@ Thanks
   - `pip`, `npm`, `gem` package lists
 - Includes optional files like `Gemfile`/`Gemfile.lock` from the home directory
 - Packages everything into an **encrypted and compressed DMG archive**
-- Optionally includes a restore script for easy recovery
+- **Auto-Saves the DMG to user's Documents folder** (can be skipped)
+- DMG includes an optional BETA restore script for easier recovery
 
 ### Usage:
 
