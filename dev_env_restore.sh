@@ -5,7 +5,7 @@
 #
 # Author: ojariabka@csas.cz
 # Date: May 2025
-# Version: 1.0
+# Version: 1.0 - BETA
 
 # --------------------------- SETUP ----------------------------------------
 
