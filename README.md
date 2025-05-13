@@ -50,7 +50,8 @@ You will be prompted for a password to create the encrypted DMG file. After comp
 2. Navigate to the extracted directory:
 
 ```zsh
-cd /path/to/extracted_backup
+cp -Rp /Volumes/DevBackup ~/DevBackupRestore
+cd ~/DevBackupRestore
 chmod +x dev_env_restore.sh
 ./dev_env_restore.sh
 ```
