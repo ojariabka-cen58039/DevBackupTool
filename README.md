@@ -2,6 +2,10 @@
 
 This repository contains two shell scripts to **back up** and **restore** a developer's environment on macOS. It includes configuration files, tool settings, and installed packages. Ideal for system migrations, re-installations, or sharing standardized development setups.
 
+Feel free to fork and modify to better suit your needs, also please report and file issues, feature requests, etc. 
+
+Thanks
+
 ## 📦 Contents
 
 - `dev_env_backup.sh` – Backs up configuration files, tool states, and package lists into an encrypted DMG archive.
@@ -82,13 +86,7 @@ chmod +x dev_env_restore.sh
 
 ## ⚠️ Disclaimer
 
-This script is designed for personal use and may need customization for enterprise environments. Always review the included files before creating or restoring backups.
-
----
-
-## 📄 License
-
-MIT License
+Always review the included files before creating or restoring backups.
 
 ---
 
