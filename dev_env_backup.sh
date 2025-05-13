@@ -65,15 +65,7 @@ for ITEM in "${files[@]}"; do
   copy_item "$ITEM"
 done
 
-# Gemfiles
-for GF in "${GEMFILES[@]}"; do
-  DST="$STAGE_DIR${GF#$HOME}"
-  mkdir -p "$(dirname "$DST")"
-  cp -p "$GF" "$DST"
-  echo "  [OK] ${GF#$HOME/}" >> "$LOG_FILE"
-done
-
-# ─── Rename backed-up keychains to avoid replacement during restore ────────
+# Rename backed-up keychains to avoid replacement
 echo "==> Renaming keychain files in backup to avoid overwrite"
 KEYCHAIN_DIR="$STAGE_DIR/Library/Keychains"
 if [ -d "$KEYCHAIN_DIR" ]; then
@@ -84,6 +76,14 @@ if [ -d "$KEYCHAIN_DIR" ]; then
 else
   echo "  [MISSING] Library/Keychains" >> "$LOG_FILE"
 fi
+
+# Gemfiles
+for GF in "${GEMFILES[@]}"; do
+  DST="$STAGE_DIR${GF#$HOME}"
+  mkdir -p "$(dirname "$DST")"
+  cp -p "$GF" "$DST"
+  echo "  [OK] ${GF#$HOME/}" >> "$LOG_FILE"
+done
 
 # ─── Include Podman config & data ──────────────────────────────────────────
 echo "==> Adding Podman configuration & data to staging"
