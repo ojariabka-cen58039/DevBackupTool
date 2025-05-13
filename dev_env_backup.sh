@@ -73,6 +73,18 @@ for GF in "${GEMFILES[@]}"; do
   echo "  [OK] ${GF#$HOME/}" >> "$LOG_FILE"
 done
 
+# ─── Rename backed-up keychains to avoid replacement during restore ────────
+echo "==> Renaming keychain files in backup to avoid overwrite"
+KEYCHAIN_DIR="$STAGE_DIR/Library/Keychains"
+if [ -d "$KEYCHAIN_DIR" ]; then
+  find "$KEYCHAIN_DIR" -type f -name "*.keychain-db" | while read -r KEYCHAIN_FILE; do
+    mv "$KEYCHAIN_FILE" "${KEYCHAIN_FILE}-OLD"
+    echo "  [RENAMED] $(basename "$KEYCHAIN_FILE") -> $(basename "$KEYCHAIN_FILE")-OLD" >> "$LOG_FILE"
+  done
+else
+  echo "  [MISSING] Library/Keychains" >> "$LOG_FILE"
+fi
+
 # ─── Include Podman config & data ──────────────────────────────────────────
 echo "==> Adding Podman configuration & data to staging"
 if [ -d "$HOME/.local/share/containers" ]; then
