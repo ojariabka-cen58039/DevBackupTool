@@ -58,11 +58,11 @@ You will be prompted for a password to create the encrypted DMG file. After comp
 cp -Rp /Volumes/DevBackup ~/DevBackupRestore
 cd ~/DevBackupRestore
 chmod +x dev_env_restore.sh
-./dev_env_restore.sh
+sudo ./dev_env_restore.sh
 ```
 
-3. For each file or directory, you'll be prompted before it’s restored to your `$HOME`.
-4. Homebrew packages are restored automatically if `brew` and `Brewfile` are present.
+3. Homebrew packages are restored automatically if `brew` and `Brewfile` are present.
+4. Keychains are automatically moved to their original locations with -OLD name change kept. 
 
 ---
 
